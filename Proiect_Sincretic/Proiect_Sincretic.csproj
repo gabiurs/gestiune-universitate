@@ -52,6 +52,12 @@
     <Compile Include="ADMIN.Designer.cs">
       <DependentUpon>ADMIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="Catalogue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Catalogue.Designer.cs">
+      <DependentUpon>Catalogue.cs</DependentUpon>
+    </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,12 @@
     </Compile>
     <Compile Include="Pay.Designer.cs">
       <DependentUpon>Pay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pontage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pontage.Designer.cs">
+      <DependentUpon>Pontage.cs</DependentUpon>
     </Compile>
     <Compile Include="Sign Up.cs">
       <SubType>Form</SubType>
@@ -111,6 +123,9 @@
     <EmbeddedResource Include="ADMIN.resx">
       <DependentUpon>ADMIN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Catalogue.resx">
+      <DependentUpon>Catalogue.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pay.resx">
       <DependentUpon>Pay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pontage.resx">
+      <DependentUpon>Pontage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sign Up.resx">
       <DependentUpon>Sign Up.cs</DependentUpon>

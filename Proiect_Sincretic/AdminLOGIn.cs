@@ -10,22 +10,17 @@ using System.Windows.Forms;
 
 namespace Proiect_Sincretic
 {
-    public partial class LogIn : Form
+    public partial class AdminLOGIn : Form
     {
-        public LogIn()
+        public AdminLOGIn()
         {
             InitializeComponent();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Form f = new Pay();
+            Form f = new Enrolement();
             f.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }

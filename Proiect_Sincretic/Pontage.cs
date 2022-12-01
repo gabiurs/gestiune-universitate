@@ -10,25 +10,14 @@ using System.Windows.Forms;
 
 namespace Proiect_Sincretic
 {
-    public partial class Teacher : Form
+    public partial class Pontage : Form
     {
-        public Teacher()
+        public Pontage()
         {
             InitializeComponent();
         }
 
-        private void Teacher_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e) 
-        {
-            Form f = new LogTeacher();
-            f.ShowDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void Pontage_Load(object sender, EventArgs e)//BUTON DE EXIT
         {
             Application.Exit();
         }
