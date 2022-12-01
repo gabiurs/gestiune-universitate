@@ -22,5 +22,17 @@ namespace Proiect_Sincretic
             Form f = new Enrolement();
             f.ShowDialog();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Form f = new Payment();
+            f.ShowDialog();
+
+        }
+
+        private void button5_Click(object sender, EventArgs e) //exit button
+        {
+            Application.Exit();
+        }
     }
 }

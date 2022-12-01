@@ -52,11 +52,23 @@
     <Compile Include="ADMIN.Designer.cs">
       <DependentUpon>ADMIN.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminLOGIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminLOGIn.Designer.cs">
+      <DependentUpon>AdminLOGIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Catalogue.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Catalogue.Designer.cs">
       <DependentUpon>Catalogue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enrolement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Enrolement.Designer.cs">
+      <DependentUpon>Enrolement.cs</DependentUpon>
     </Compile>
     <Compile Include="LogIn.cs">
       <SubType>Form</SubType>
@@ -75,6 +87,12 @@
     </Compile>
     <Compile Include="Pay.Designer.cs">
       <DependentUpon>Pay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
     </Compile>
     <Compile Include="Pontage.cs">
       <SubType>Form</SubType>
@@ -123,8 +141,14 @@
     <EmbeddedResource Include="ADMIN.resx">
       <DependentUpon>ADMIN.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminLOGIn.resx">
+      <DependentUpon>AdminLOGIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Catalogue.resx">
       <DependentUpon>Catalogue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Enrolement.resx">
+      <DependentUpon>Enrolement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LogIn.resx">
       <DependentUpon>LogIn.cs</DependentUpon>
@@ -134,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pay.resx">
       <DependentUpon>Pay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Pontage.resx">
       <DependentUpon>Pontage.cs</DependentUpon>

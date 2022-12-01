@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Proiect_Sincretic
 {
-    public partial class Enrolement : Form
+    public partial class Payment : Form
     {
-        public Enrolement()
+        public Payment()
         {
             InitializeComponent();
-        }
-
-        private void button3_Click(object sender, EventArgs e) //exit button
-        {
-            Application.Exit();
         }
     }
 }

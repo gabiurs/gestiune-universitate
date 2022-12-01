@@ -21,5 +21,16 @@ namespace Proiect_Sincretic
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form f = new AdminLOGIn();
+            f.ShowDialog();
+        }
+
+        private void button3_Click(object sender, EventArgs e) //exit button
+        {
+            Application.Exit();
+        }
     }
 }
