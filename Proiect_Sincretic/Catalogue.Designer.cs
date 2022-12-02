@@ -61,10 +61,10 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(30, 178);
+            this.dataGridView1.Location = new System.Drawing.Point(30, 169);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1435, 550);
+            this.dataGridView1.Size = new System.Drawing.Size(1447, 541);
             this.dataGridView1.TabIndex = 2;
             // 
             // comboBox1
@@ -117,6 +117,7 @@
             this.Controls.Add(this.checkBox1);
             this.Name = "Catalogue";
             this.Text = "Catalogue";
+            this.Load += new System.EventHandler(this.Catalogue_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

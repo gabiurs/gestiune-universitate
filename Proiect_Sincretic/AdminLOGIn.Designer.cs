@@ -141,17 +141,17 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(398, 47);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 17);
+            this.label2.Size = new System.Drawing.Size(129, 17);
             this.label2.TabIndex = 10;
-            this.label2.Text = "MAKE A PAY";
+            this.label2.Text = "MAKE A PAYMENT";
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(380, 81);
+            this.button7.Location = new System.Drawing.Point(400, 81);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(127, 57);
             this.button7.TabIndex = 11;
-            this.button7.Text = "PAY";
+            this.button7.Text = "PAYMENT";
             this.button7.UseVisualStyleBackColor = true;
             // 
             // AdminLOGIn

@@ -30,8 +30,8 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.usernamebox = new System.Windows.Forms.TextBox();
+            this.Passwordbox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -55,19 +55,19 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "PASSWORD";
             // 
-            // textBox1
+            // usernamebox
             // 
-            this.textBox1.Location = new System.Drawing.Point(613, 242);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(352, 22);
-            this.textBox1.TabIndex = 2;
+            this.usernamebox.Location = new System.Drawing.Point(613, 242);
+            this.usernamebox.Name = "usernamebox";
+            this.usernamebox.Size = new System.Drawing.Size(352, 22);
+            this.usernamebox.TabIndex = 2;
             // 
-            // textBox2
+            // Passwordbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(613, 375);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(352, 22);
-            this.textBox2.TabIndex = 3;
+            this.Passwordbox.Location = new System.Drawing.Point(613, 375);
+            this.Passwordbox.Name = "Passwordbox";
+            this.Passwordbox.Size = new System.Drawing.Size(352, 22);
+            this.Passwordbox.TabIndex = 3;
             // 
             // button1
             // 
@@ -109,6 +109,7 @@
             this.button3.TabIndex = 6;
             this.button3.Text = "BACK";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // SignIn
             // 
@@ -119,10 +120,11 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Passwordbox);
+            this.Controls.Add(this.usernamebox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SignIn";
             this.Text = "SignIn";
             this.ResumeLayout(false);
@@ -134,8 +136,8 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox usernamebox;
+        private System.Windows.Forms.TextBox Passwordbox;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;

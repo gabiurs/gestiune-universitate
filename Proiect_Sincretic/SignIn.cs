@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,13 +20,33 @@ namespace Proiect_Sincretic
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form f = new LogIn();
-            f.ShowDialog();
+            string connect = @"Data Source=GABI\WINCC;Initial Catalog=Universitate;Integrated Security=True";
+            SqlConnection con = new SqlConnection(connect);
+            con.Open();
+            string stmt = "select * from Studenti where UserName='" + usernamebox.Text + "' and Password='" +Passwordbox.Text+"'";
+            SqlDataAdapter da = new SqlDataAdapter(stmt, con);
+            DataSet ds = new DataSet();
+            da.Fill(ds, "Studenti");
+            if ((ds.Tables["Studenti"].Rows.Count) == 1)
+            {
+                con.Close();
+
+                Form f = new LogIn();
+                f.ShowDialog();
+            }
+            else
+                MessageBox.Show("Wrong Username/ Password");
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //exit button
         {
+            Application.Exit();
+        }
 
+        private void button3_Click(object sender, EventArgs e) // back button
+        {
+            this.Close();
+          
         }
     }
 }

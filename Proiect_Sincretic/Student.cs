@@ -25,8 +25,7 @@ namespace Proiect_Sincretic
         private void button2_Click(object sender, EventArgs e) //back buton 
         {
             this.Close(); 
-            Form f = new WELCOME();
-            f.ShowDialog();
+           
              
         }
 
