@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Payment
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1114, 624);
-            this.Name = "Payment";
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Text = "Payment";
-            this.ResumeLayout(false);
-
         }
 
         #endregion

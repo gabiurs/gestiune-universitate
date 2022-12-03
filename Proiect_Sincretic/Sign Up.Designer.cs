@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.fnTB = new System.Windows.Forms.TextBox();
             this.lnTB = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.ncpCB = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
@@ -54,6 +53,7 @@
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
             // label3
@@ -148,19 +148,6 @@
             this.lnTB.Size = new System.Drawing.Size(352, 22);
             this.lnTB.TabIndex = 5;
             // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Informatics",
-            "Arhitecture",
-            "Design ",
-            "Translate"});
-            this.comboBox1.Location = new System.Drawing.Point(267, 271);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(352, 24);
-            this.comboBox1.TabIndex = 7;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -229,6 +216,7 @@
             this.button4.TabIndex = 20;
             this.button4.Text = "CLEAR";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label9
             // 
@@ -299,12 +287,21 @@
             this.checkBox3.Text = "Other";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
+            // checkedListBox1
+            // 
+            this.checkedListBox1.FormattingEnabled = true;
+            this.checkedListBox1.Location = new System.Drawing.Point(261, 237);
+            this.checkedListBox1.Name = "checkedListBox1";
+            this.checkedListBox1.Size = new System.Drawing.Size(358, 89);
+            this.checkedListBox1.TabIndex = 29;
+            // 
             // SignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(233)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1383, 732);
+            this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.checkBox1);
@@ -324,7 +321,6 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ncpCB);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.lnTB);
             this.Controls.Add(this.fnTB);
             this.Controls.Add(this.label4);
@@ -350,7 +346,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox fnTB;
         private System.Windows.Forms.TextBox lnTB;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox ncpCB;
         private System.Windows.Forms.Button button1;
@@ -365,5 +360,6 @@
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckedListBox checkedListBox1;
     }
 }

@@ -53,6 +53,7 @@ namespace Proiect_Sincretic
         public SignUp()
         {
             InitializeComponent();
+            Shown += OnShown;
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
@@ -77,16 +78,16 @@ namespace Proiect_Sincretic
         }
         //..............................................................................
         //verificam CNP-ul
-          
+
 
         private void textBox7_Leave(object sender, EventArgs e)
         {
             if (verificCNP(ncpCB.Text) == true)
-                //facem asta doar daca avem un cnp corect
+            //facem asta doar daca avem un cnp corect
             {    //MessageBox.Show("CNP corect!");
                 string year, mounth, day;
                 year = ncpCB.Text.Substring(1, 2);
-                mounth= ncpCB.Text.Substring(3, 2);
+                mounth = ncpCB.Text.Substring(3, 2);
                 day = ncpCB.Text.Substring(5, 2);
                 // transformam in int ca sa calculam daca anul este 1900 sau 2000
                 int year_int;
@@ -96,7 +97,7 @@ namespace Proiect_Sincretic
                 else
                     year_int += 1900;
 
-                var birthday = new DateTime(year_int, Int32.Parse(mounth), Int32.Parse(day)); 
+                var birthday = new DateTime(year_int, Int32.Parse(mounth), Int32.Parse(day));
 
                 int age = (int)((DateTime.Now - birthday).TotalDays / 365.242199);
                 //MessageBox.Show(year);
@@ -107,6 +108,35 @@ namespace Proiect_Sincretic
             else
                 MessageBox.Show("CNP incorect!");
         }
+
+
+        //...........................................................................................................
+        private void OnShown(object sender, EventArgs e)
+        {
+            //ca sa imi arate toate materiile direct cand se incarca forma 
+
+            string connect = @"Data Source=GABI\WINCC;Initial Catalog=Universitate;Integrated Security=True";
+            SqlConnection cnn = new SqlConnection(connect);
+            cnn.Open();
+            string stmt = "select * from Materii";
+
+            SqlCommand oCmd = new SqlCommand(stmt, cnn);
+
+            using (SqlDataReader oReader = oCmd.ExecuteReader())
+            {
+                while (oReader.Read())
+                {
+
+
+                    Materii m = new Materii();
+                    m.Nume = oReader["Nume"].ToString();
+                    Invoke(new Action(() => checkedListBox1.Items.Add(m, false)));
+                }
+
+                cnn.Close();
+            }
+        }
+
         // buton de salvare pentru adaugarea de date in baza de date in tabelul de studenti
         private void button1_Click(object sender, EventArgs e)  
         {   string sex;
@@ -120,16 +150,81 @@ namespace Proiect_Sincretic
                   else
                          sex = checkBox3.Text;
 
+            string connect = @"Data Source=GABI\WINCC;Initial Catalog=Universitate;Integrated Security=True";
+            SqlConnection cnn = new SqlConnection(connect);
+            cnn.Open();
+            SqlCommand sc;
+            string stmt;
+            
+            foreach (var item in checkedListBox1.CheckedItems)
+            {
+                MessageBox.Show(item.ToString());
+                string v_profname;
+                int v_ID, v_locuri;
+                stmt = "select * from MaterieSiProfesori where Materie= @mat and Locuri>0";
+                SqlCommand oCmd = new SqlCommand(stmt, cnn);
+                oCmd.Parameters.AddWithValue("@mat", item.ToString());
+                using (SqlDataReader oReader = oCmd.ExecuteReader())
+                {//executa query ul de mai sus cu select si il pune in oReader
+                    if (oReader.HasRows==false) {
+                        MessageBox.Show("This class is full!\n");
+                        return;
+
+                    }
+
+                    oReader.Read();//read citeste prima linie 
+                    v_ID = int.Parse(oReader["ID"].ToString()); //citeste coloana materie din materiesi profesor
+                    v_profname = oReader["UserName"].ToString();
+                    v_locuri = int.Parse(oReader["Locuri"].ToString());
+                    v_locuri--;
+
+
+                    //MessageBox.Show(oReader["Materie"].ToString());
+                    oReader["Materie"].ToString();
+                    //cnn.Close();
+                }
+
+
+                stmt = "insert into Inscrieri  ([NumeMaterie], [UserName], [Profesor]) values (@nm, @us, @p)";
+                sc = new SqlCommand(stmt, cnn);
+                sc.Parameters.AddWithValue("@nm", item.ToString()); //materia 
+                sc.Parameters.AddWithValue("@us", usTB.Text);  //pt username
+                sc.Parameters.AddWithValue("@p", v_profname); //pentru profesor 
+
+
+                sc.ExecuteNonQuery();
+
+                //..........................................................................................................
+                //inserram informatii in tabelul de plati ca sa stim fiecare student cat are de platit
+                stmt = "insert into Plati  ([UserName], [Materia], [Suma],[SumaTotala],[SumaRamasa],[Data]) values (@us, @m, @s,@st,@sr,@d)";
+                sc = new SqlCommand(stmt, cnn);
+                sc.Parameters.AddWithValue("@us", usTB.Text);  //asta ia username ul
+                sc.Parameters.AddWithValue("@m", item.ToString());  //asta ia materia 
+                sc.Parameters.AddWithValue("@s", 0); 
+                sc.Parameters.AddWithValue("@st",1500 ); 
+                sc.Parameters.AddWithValue("@sr",1500); 
+                sc.Parameters.AddWithValue("@d", DateTime.Now.ToString(@"MM\/dd\/yyyy h\:mm tt"));
+                sc.ExecuteNonQuery();
+                //.............................................................................................
+                //executam query ul pt update la baza de date pt locuri
+                stmt = "update MaterieSiProfesori SET Locuri=@loc where ID = @id";
+
+                sc = new SqlCommand(stmt, cnn);
+                sc.Parameters.AddWithValue("@loc", v_locuri);
+                sc.Parameters.AddWithValue("@id", v_ID);
+                sc.ExecuteNonQuery();
+
+            }
+
+
             if (ncpCB.Text != string.Empty)
             {
-                string connect = @"Data Source=GABI\WINCC;Initial Catalog=Universitate;Integrated Security=True";
-                SqlConnection cnn = new SqlConnection(connect);
-                cnn.Open();
-                string stmt = "insert into Studenti ([FirstName], [LastName], [Class], [NCP], [Age], [Sex], [Data], [Number], [UserName], [Password]) values (@fn, @ln, @c, @ncp, @a, @s, @d,@n, @us, @ps)";
-                SqlCommand sc = new SqlCommand(stmt, cnn);
+                
+                stmt = "insert into Studenti ([FirstName], [LastName], [Class], [NCP], [Age], [Sex], [Data], [Number], [UserName], [Password]) values (@fn, @ln, @c, @ncp, @a, @s, @d,@n, @us, @ps)";
+                sc = new SqlCommand(stmt, cnn);
                 sc.Parameters.AddWithValue("@fn", fnTB.Text);
                 sc.Parameters.AddWithValue("@ln", lnTB.Text);
-                sc.Parameters.AddWithValue("@c", comboBox1.ValueMember);
+                sc.Parameters.AddWithValue("@c", checkedListBox1.ValueMember);
                 sc.Parameters.AddWithValue("@ncp", ncpCB.Text);
                 sc.Parameters.AddWithValue("@a", aTB.Text);
                 sc.Parameters.AddWithValue("@s", sex);
@@ -137,8 +232,11 @@ namespace Proiect_Sincretic
                 sc.Parameters.AddWithValue("@n", nTB.Text);
                 sc.Parameters.AddWithValue("@us", usTB.Text);
                 sc.Parameters.AddWithValue("@ps", ps.Text);
-                
                 sc.ExecuteNonQuery();
+                //..................................................
+                //aici adaugam materiile in tabeleul de inscrieri
+                //comboBox1
+              
                 cnn.Close();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
@@ -152,7 +250,29 @@ namespace Proiect_Sincretic
 
         private void ncpCB_TextChanged(object sender, EventArgs e)
         {
+        }
+
+        private void button4_Click(object sender, EventArgs e)//clear button
+        {
+             
+                Action<Control.ControlCollection> func = null;
+
+                func = (controls) =>
+                {
+                    foreach (Control control in controls)
+                        if (control is TextBox)
+                            (control as TextBox).Clear();
+                        else
+                            func(control.Controls);
+                };
+
+                func(Controls);
             
+            checkBox1.Checked = false;
+            checkBox2.Checked = false;
+            checkBox3.Checked = false;
+            for (int i=0;i<checkedListBox1.Items.Count;i++)
+            { checkedListBox1.SetItemChecked(i, false); }
         }
     }
 

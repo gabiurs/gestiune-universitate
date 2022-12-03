@@ -30,12 +30,17 @@ namespace Proiect_Sincretic
             string connect = @"Data Source=GABI\WINCC;Initial Catalog=Universitate;Integrated Security=True";
             SqlConnection cnn = new SqlConnection(connect);
             cnn.Open();
-            string tabel_date = "select * from Studenti";
+            string tabel_date = "select NumeMaterie,UserName,Nota,Status from Inscrieri";
             SqlDataAdapter da = new SqlDataAdapter(tabel_date, connect);
             DataSet ds = new DataSet();
-            da.Fill(ds, "Studenti");
-            dataGridView1.DataSource = ds.Tables["Studenti"].DefaultView;
+            da.Fill(ds, "Inscrieri");
+            dataGridView1.DataSource = ds.Tables["Inscrieri"].DefaultView;
             cnn.Close();
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

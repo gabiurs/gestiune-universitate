@@ -34,11 +34,11 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.nTB = new System.Windows.Forms.TextBox();
+            this.ncpCB = new System.Windows.Forms.TextBox();
+            this.aTB = new System.Windows.Forms.TextBox();
+            this.adTB = new System.Windows.Forms.TextBox();
+            this.fcTB = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
@@ -46,8 +46,8 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.usTB = new System.Windows.Forms.TextBox();
+            this.psTB = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -107,40 +107,41 @@
             this.label6.TabIndex = 6;
             this.label6.Text = "SEX";
             // 
-            // textBox1
+            // nTB
             // 
-            this.textBox1.Location = new System.Drawing.Point(229, 83);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(364, 22);
-            this.textBox1.TabIndex = 7;
+            this.nTB.Location = new System.Drawing.Point(229, 83);
+            this.nTB.Name = "nTB";
+            this.nTB.Size = new System.Drawing.Size(364, 22);
+            this.nTB.TabIndex = 7;
             // 
-            // textBox2
+            // ncpCB
             // 
-            this.textBox2.Location = new System.Drawing.Point(229, 187);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(364, 22);
-            this.textBox2.TabIndex = 8;
+            this.ncpCB.Location = new System.Drawing.Point(229, 187);
+            this.ncpCB.Name = "ncpCB";
+            this.ncpCB.Size = new System.Drawing.Size(364, 22);
+            this.ncpCB.TabIndex = 8;
+            this.ncpCB.Leave += new System.EventHandler(this.ncpCB_Leave);
             // 
-            // textBox3
+            // aTB
             // 
-            this.textBox3.Location = new System.Drawing.Point(229, 284);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(364, 22);
-            this.textBox3.TabIndex = 9;
+            this.aTB.Location = new System.Drawing.Point(229, 284);
+            this.aTB.Name = "aTB";
+            this.aTB.Size = new System.Drawing.Size(364, 22);
+            this.aTB.TabIndex = 9;
             // 
-            // textBox4
+            // adTB
             // 
-            this.textBox4.Location = new System.Drawing.Point(229, 391);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(364, 22);
-            this.textBox4.TabIndex = 10;
+            this.adTB.Location = new System.Drawing.Point(229, 391);
+            this.adTB.Name = "adTB";
+            this.adTB.Size = new System.Drawing.Size(364, 22);
+            this.adTB.TabIndex = 10;
             // 
-            // textBox6
+            // fcTB
             // 
-            this.textBox6.Location = new System.Drawing.Point(915, 85);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(394, 22);
-            this.textBox6.TabIndex = 12;
+            this.fcTB.Location = new System.Drawing.Point(915, 85);
+            this.fcTB.Name = "fcTB";
+            this.fcTB.Size = new System.Drawing.Size(394, 22);
+            this.fcTB.TabIndex = 12;
             // 
             // label7
             // 
@@ -167,6 +168,7 @@
             this.checkedListBox1.Name = "checkedListBox1";
             this.checkedListBox1.Size = new System.Drawing.Size(586, 242);
             this.checkedListBox1.TabIndex = 15;
+            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
             // 
             // checkBox1
             // 
@@ -207,19 +209,19 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "USER NAME";
             // 
-            // textBox5
+            // usTB
             // 
-            this.textBox5.Location = new System.Drawing.Point(244, 588);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(363, 22);
-            this.textBox5.TabIndex = 20;
+            this.usTB.Location = new System.Drawing.Point(244, 588);
+            this.usTB.Name = "usTB";
+            this.usTB.Size = new System.Drawing.Size(363, 22);
+            this.usTB.TabIndex = 20;
             // 
-            // textBox7
+            // psTB
             // 
-            this.textBox7.Location = new System.Drawing.Point(244, 655);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(363, 22);
-            this.textBox7.TabIndex = 21;
+            this.psTB.Location = new System.Drawing.Point(244, 655);
+            this.psTB.Name = "psTB";
+            this.psTB.Size = new System.Drawing.Size(363, 22);
+            this.psTB.TabIndex = 21;
             // 
             // label10
             // 
@@ -232,12 +234,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1267, 474);
+            this.button1.Location = new System.Drawing.Point(1267, 458);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 57);
             this.button1.TabIndex = 23;
             this.button1.Text = "SAVE";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -267,8 +270,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.psTB);
+            this.Controls.Add(this.usTB);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
@@ -276,11 +279,11 @@
             this.Controls.Add(this.checkedListBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.fcTB);
+            this.Controls.Add(this.adTB);
+            this.Controls.Add(this.aTB);
+            this.Controls.Add(this.ncpCB);
+            this.Controls.Add(this.nTB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -302,11 +305,11 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox nTB;
+        private System.Windows.Forms.TextBox ncpCB;
+        private System.Windows.Forms.TextBox aTB;
+        private System.Windows.Forms.TextBox adTB;
+        private System.Windows.Forms.TextBox fcTB;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.CheckedListBox checkedListBox1;
@@ -314,8 +317,8 @@
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox usTB;
+        private System.Windows.Forms.TextBox psTB;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;

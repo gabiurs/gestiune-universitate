@@ -18,7 +18,7 @@ namespace Proiect_Sincretic
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) //button de login
         {
             string connect = @"Data Source=GABI\WINCC;Initial Catalog=Universitate;Integrated Security=True";
             SqlConnection con = new SqlConnection(connect);
@@ -30,7 +30,15 @@ namespace Proiect_Sincretic
             if ((ds.Tables["Studenti"].Rows.Count) == 1)
             {
                 con.Close();
+               Studenti.Firstname = "" + ds.Tables["Studenti"].Rows[0]["FirstName"];
+                Studenti.LastName = "" + ds.Tables["Studenti"].Rows[0]["LastName"];
+                Studenti.ncp = "" + ds.Tables["Studenti"].Rows[0]["NCP"];
+                Studenti.age = int.Parse(ds.Tables["Studenti"].Rows[0]["Age"].ToString());
+                Studenti.number = int.Parse(ds.Tables["Studenti"].Rows[0]["Number"].ToString());
+                Studenti.sex = "" + ds.Tables["Studenti"].Rows[0]["Sex"];
+                Studenti.username = "" + ds.Tables["Studenti"].Rows[0]["UserName"];
 
+                
                 Form f = new LogIn();
                 f.ShowDialog();
             }
